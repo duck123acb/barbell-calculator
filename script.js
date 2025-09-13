@@ -1,6 +1,6 @@
-let barbell = 45
+let barbell = 45;
 
-let plates = [45, 35, 25, 10, 5, 2.5]
+let plates = [];
 
 class PlateStack {
     constructor(weight, number) {
@@ -9,7 +9,7 @@ class PlateStack {
     }
 }
 
-function CalculateWeights(weight) {
+function calculateWeights(weight) {
     let remainingWeight = weight - barbell;
     if (remainingWeight < 0) {
         console.log("Target weight is less than the barbell itself!");
@@ -35,3 +35,23 @@ function CalculateWeights(weight) {
 
     return result;
 }
+
+function updatePlateList(plateValue, isChecked) {
+	if (isChecked) {
+		plates.push(plateValue);
+		plates.sort((a, b) => b - a);
+		return;
+	}
+	
+	plates = plates.filter(p => p !== plateValue);
+}
+
+document.querySelectorAll('.plate input').forEach(input => {
+	input.addEventListener('change', (event) => {
+		updatePlateList(parseFloat(event.target.value), event.target.checked);
+	});
+
+	if (input.checked) {
+		updatePlateList(parseFloat(input.value), event.target.checked;
+	}
+});

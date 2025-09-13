@@ -52,6 +52,6 @@ document.querySelectorAll('.plate input').forEach(input => {
 	});
 
 	if (input.checked) {
-		updatePlateList(parseFloat(input.value), event.target.checked;
+		updatePlateList(parseFloat(input.value), input.checked);
 	}
 });

@@ -1,55 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Barbell Calculator</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js" defer></script>
-</head>
-<body>
-	<div class="plate-options">
-		<label class="plate">
-			<input type="checkbox" value="55">
-			<span class="plate-label">55 lbs</span>
-		</label>
-		<label class="plate">
-                        <input type="checkbox" value="45" checked>
-                        <span class="plate-label">45 lbs</span>
-                </label>
-                <label class="plate">
-                        <input type="checkbox" value="35" checked>
-                        <span class="plate-label">35 lbs</span>
-                </label>
-                <label class="plate">
-                        <input type="checkbox" value="25" checked>
-                        <span class="plate-label">25 lbs</span>
-                </label>
-                <label class="plate">
-                        <input type="checkbox" value="10" checked>
-                        <span class="plate-label">10 lbs</span>
-                </label>
-		<label class="plate">
-                        <input type="checkbox" value="5" checked>
-                        <span class="plate-label">5 lbs</span>
-                </label>
-                <label class="plate">
-                        <input type="checkbox" value="2.5" checked>
-                        <span class="plate-label">2.5 lbs</span>
-                </label>
-                <label class="plate">
-                        <input type="checkbox" value="1.5">
-                        <span class="plate-label">1.5 lbs</span>
-                </label>
-		<label class="plate">
-                        <input type="checkbox" value="1">
-                        <span class="plate-label">1 lb</span>
-                </label>
-		<label class="plate">
-                        <input type="checkbox" value="0.5">
-                        <span class="plate-label">0.5 lbs</span>
-                </label>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Barbell Calculator</title>
+        <link rel="stylesheet" href="style.css">
+        <script src="script.js" defer></script>
+    </head>
+    <body>
+        <div class="barbell-area">
+            <h2 id="weight-display"></h2>
+            <div id="barbell"></div>
         </div>
-
-</body>
+        <div class="options">
+            <label>
+                <span>Enter weight:</span>
+                <input type="text">
+            </label>
+            <label>
+                <span>Barbell weight:</span>
+                <select name="barbell-weight" id="barbell-weight">
+                    <option value="45">45 lbs</option>
+                    <option value="35">35 lbs</option>
+                    <option value="15">15 lbs</option>
+                </select>
+            </label>
+            <div class="plate-options">
+                <label class="plate">
+                    <input type="checkbox" value="55">
+                    <span class="plate-label">55 lbs</span>
+                </label>
+                <label class="plate">
+                    <input type="checkbox" value="45" checked>
+                    <span class="plate-label">45 lbs</span>
+                </label>
+                <label class="plate">
+                    <input type="checkbox" value="35" checked>
+                    <span class="plate-label">35 lbs</span>
+                </label>
+                <label class="plate">
+                    <input type="checkbox" value="25" checked>
+                    <span class="plate-label">25 lbs</span>
+                </label>
+                <label class="plate">
+                    <input type="checkbox" value="10" checked>
+                    <span class="plate-label">10 lbs</span>
+                </label>
+                <label class="plate">
+                    <input type="checkbox" value="5" checked>
+                    <span class="plate-label">5 lbs</span>
+                </label>
+                <label class="plate">
+                    <input type="checkbox" value="2.5" checked>
+                    <span class="plate-label">2.5 lbs</span>
+                </label>
+                <label class="plate">
+                    <input type="checkbox" value="1.5">
+                    <span class="plate-label">1.5 lbs</span>
+                </label>
+                <label class="plate">
+                    <input type="checkbox" value="1">
+                    <span class="plate-label">1 lb</span>
+                </label>
+                <label class="plate">
+                    <input type="checkbox" value="0.5">
+                    <span class="plate-label">0.5 lbs</span>
+                </label>
+            </div>
+        </div>
+    </body>
 </html>

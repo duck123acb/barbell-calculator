@@ -4,10 +4,14 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Barbell Calculator</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="style.css">
         <script src="script.js" defer></script>
     </head>
     <body>
+	<h1>Barbell Calculator</h1>
         <div class="barbell-area">
             <h2 id="weight-display"></h2>
             <div id="barbell"></div>
@@ -27,47 +31,53 @@
                     </select>
                 </label>
                 <div class="plate-options">
-                    <label class="plate">
+                    <label class="plate-label">
                         <input type="checkbox" value="55">
-                        <span class="plate-label">55 lbs</span>
+			<div class="plate-shape"></div>
+                        <span class="plate-text">55 lbs</span>
                     </label>
-                    <label class="plate">
+		    <label class="plate-label">
                         <input type="checkbox" value="45" checked>
-                        <span class="plate-label">45 lbs</span>
+                        <div class="plate-shape"></div>
+                        <span class="plate-text">45 lbs</span>
                     </label>
-                    <label class="plate">
+		    <label class="plate-label">
                         <input type="checkbox" value="35" checked>
-                        <span class="plate-label">35 lbs</span>
+                        <div class="plate-shape"></div>
+                        <span class="plate-text">35 lbs</span>
                     </label>
-                    <label class="plate">
+		    <label class="plate-label">
                         <input type="checkbox" value="25" checked>
-                        <span class="plate-label">25 lbs</span>
+                        <div class="plate-shape"></div>
+                        <span class="plate-text">25 lbs</span>
                     </label>
-                    <label class="plate">
+		    <label class="plate-label">
                         <input type="checkbox" value="10" checked>
-                        <span class="plate-label">10 lbs</span>
+                        <div class="plate-shape"></div>
+                        <span class="plate-text">10 lbs</span>
                     </label>
-                    <label class="plate">
+		    <label class="plate-label">
                         <input type="checkbox" value="5" checked>
-                        <span class="plate-label">5 lbs</span>
+                        <div class="plate-shape"></div>
+                        <span class="plate-text">5 lbs</span>
                     </label>
-                    <label class="plate">
+		    <label class="plate-label">
                         <input type="checkbox" value="2.5" checked>
-                        <span class="plate-label">2.5 lbs</span>
+                        <div class="plate-shape"></div>
+                        <span class="plate-text">2.5 lbs</span>
                     </label>
-                    <label class="plate">
-                        <input type="checkbox" value="1.5">
-                        <span class="plate-label">1.5 lbs</span>
-                    </label>
-                    <label class="plate">
+		    <label class="plate-label">
                         <input type="checkbox" value="1">
-                        <span class="plate-label">1 lb</span>
+                        <div class="plate-shape"></div>
+                        <span class="plate-text">1 lb</span>
                     </label>
-                    <label class="plate">
+		    <label class="plate-label">
                         <input type="checkbox" value="0.5">
-                        <span class="plate-label">0.5 lbs</span>
+                        <div class="plate-shape"></div>
+                        <span class="plate-text">0.5 lbs</span>
                     </label>
                 </div>
+		<span>(click to enable/disable plates in the calculation)</span>
             </div>
         </div>
     </body>

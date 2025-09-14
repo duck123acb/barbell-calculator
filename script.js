@@ -1,5 +1,4 @@
-let barbell = 45;
-
+let barbell;
 let plates = [];
 
 class PlateStack {
@@ -36,18 +35,26 @@ function calculateWeights(weight) {
     return result;
 }
 
-function updatePlateList(plateValue, isChecked) {
+function updatePlateList(plateWeight, isChecked) {
 	if (isChecked) {
-		plates.push(plateValue);
+		plates.push(plateWeight);
 		plates.sort((a, b) => b - a);
 		return;
 	}
 	
-	plates = plates.filter(p => p !== plateValue);
+	plates = plates.filter(p => p !== plateWeight);
+}
+function updateBarbellWeight(weight) {
+    barbell = weight;
 }
 
-document.querySelectorAll('.plate input').forEach(input => {
-	input.addEventListener('change', (event) => {
+let barbellWeightDropdown = document.querySelector("#barbell-weight");
+
+barbellWeightDropdown.addEventListener("change", (event) => {
+    updateBarbellWeight(parseFloat(event.target.value));
+});
+document.querySelectorAll(".plate input").forEach(input => {
+	input.addEventListener("change", (event) => {
 		updatePlateList(parseFloat(event.target.value), event.target.checked);
 	});
 
@@ -55,3 +62,4 @@ document.querySelectorAll('.plate input').forEach(input => {
 		updatePlateList(parseFloat(input.value), input.checked);
 	}
 });
+updateBarbellWeight(barbellWeightDropdown.value);

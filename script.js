@@ -14,10 +14,9 @@ class PlateStack {
 
 function calculateWeights(weight) {
     let remainingWeight = weight - barbell;
-    if (remainingWeight < 0) {
-        console.log("Target weight is less than the barbell itself!");
-        return [];
-    }
+
+    if (remainingWeight < 0)
+        return {error: "Target weight is less than the barbell itself!"};
     
     let result = [];
     let perSide = remainingWeight / 2;
@@ -28,16 +27,20 @@ function calculateWeights(weight) {
             return;
         }
 
-        result.push(new PlateStack(plate, count * 2));
+        result.push(new PlateStack(plate, count));
         perSide -= count * plate;
     });
 
     if (perSide !== 0) {
-        console.warn(`Could not match exact target with given plates. ${perSide} lbs leftover per side.`);
+        return {
+            error: `Could not match exact target with given plates. ${perSide} lbs leftover per side.`,
+            plates: result
+        }
     }
 
-    return result;
+    return { plates: result };
 }
+
 
 function updatePlateList(plateWeight, isChecked) {
 	if (isChecked) {
@@ -48,24 +51,30 @@ function updatePlateList(plateWeight, isChecked) {
 	
 	plates = plates.filter(p => p !== plateWeight);
 }
-function updateWeightDisplay(weight) {
-    weightDisplay.textContent = weight + " lbs";
-}
+
 function updateBarbellWeight(weight) {
     barbell = weight;
-    updateWeightDisplay(barbell);
+    weightDisplay.textContent = barbell + " lbs";
 }
+
 function updateUI() {
     let weight = weightInput.value;
-    let weightStack = calculateWeights(weight);
-    updateWeightDisplay(weight);
+    let result = calculateWeights(weight);
+
+    if (result.plates) {
+        weightDisplay.textContent = weight + " lbs";
+        console.log(result.plates);
+    }
+    if (result.error)
+        weightDisplay.textContent = result.error;
 }
+
 
 document.querySelector("#calculate-btn").addEventListener("click", updateUI);
 weightInput.addEventListener("keydown", (event) => {
     if (event.key !== "Enter")
         return;
-    
+
     updateUI();
 });
 barbellWeightDropdown.addEventListener("change", (event) => {

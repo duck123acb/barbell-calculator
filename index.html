@@ -13,13 +13,13 @@
     <body>
 	<h1>Barbell Calculator</h1>
         <div class="barbell-area">
-            <h2 id="weight-display"></h2>
+            <h2 id="weight-display">0 lbs</h2>
             <div id="barbell"></div>
         </div>
         <div class="options section">
             <div class="section">
                 <span>Enter weight:</span>
-                <input type="text">
+                <input type="number" min="0" step="0.5" id="weight-input">
             </div>
             <div class="settings section">
                 <label>
@@ -33,52 +33,53 @@
                 <div class="plate-options">
                     <label class="plate-label">
                         <input type="checkbox" value="55">
-			<div class="plate-shape"></div>
+		            	<div class="plate-shape"></div>
                         <span class="plate-text">55 lbs</span>
                     </label>
-		    <label class="plate-label">
+        		    <label class="plate-label">
                         <input type="checkbox" value="45" checked>
                         <div class="plate-shape"></div>
                         <span class="plate-text">45 lbs</span>
                     </label>
-		    <label class="plate-label">
+        		    <label class="plate-label">
                         <input type="checkbox" value="35" checked>
                         <div class="plate-shape"></div>
                         <span class="plate-text">35 lbs</span>
                     </label>
-		    <label class="plate-label">
+        		    <label class="plate-label">
                         <input type="checkbox" value="25" checked>
                         <div class="plate-shape"></div>
                         <span class="plate-text">25 lbs</span>
                     </label>
-		    <label class="plate-label">
+        		    <label class="plate-label">
                         <input type="checkbox" value="10" checked>
                         <div class="plate-shape"></div>
                         <span class="plate-text">10 lbs</span>
                     </label>
-		    <label class="plate-label">
+        		    <label class="plate-label">
                         <input type="checkbox" value="5" checked>
                         <div class="plate-shape"></div>
                         <span class="plate-text">5 lbs</span>
                     </label>
-		    <label class="plate-label">
+        		    <label class="plate-label">
                         <input type="checkbox" value="2.5" checked>
                         <div class="plate-shape"></div>
                         <span class="plate-text">2.5 lbs</span>
                     </label>
-		    <label class="plate-label">
+        		    <label class="plate-label">
                         <input type="checkbox" value="1">
                         <div class="plate-shape"></div>
                         <span class="plate-text">1 lb</span>
                     </label>
-		    <label class="plate-label">
+        		    <label class="plate-label">
                         <input type="checkbox" value="0.5">
                         <div class="plate-shape"></div>
                         <span class="plate-text">0.5 lbs</span>
                     </label>
                 </div>
-		<span>(click to enable/disable plates in the calculation)</span>
+		        <span>(click to enable/disable plates in the calculation)</span>
             </div>
+            <button id="calculate-btn">Calculate Weight</button>
         </div>
     </body>
 </html>

@@ -1,6 +1,10 @@
 let barbell;
 let plates = [];
 
+let weightDisplay = document.querySelector("#weight-display");
+let weightInput = document.querySelector("#weight-input")
+let barbellWeightDropdown = document.querySelector("#barbell-weight");
+
 class PlateStack {
     constructor(weight, number) {
         this.weight = weight;
@@ -44,16 +48,30 @@ function updatePlateList(plateWeight, isChecked) {
 	
 	plates = plates.filter(p => p !== plateWeight);
 }
+function updateWeightDisplay(weight) {
+    weightDisplay.textContent = weight + " lbs";
+}
 function updateBarbellWeight(weight) {
     barbell = weight;
+    updateWeightDisplay(barbell);
+}
+function updateUI() {
+    let weight = weightInput.value;
+    let weightStack = calculateWeights(weight);
+    updateWeightDisplay(weight);
 }
 
-let barbellWeightDropdown = document.querySelector("#barbell-weight");
-
+document.querySelector("#calculate-btn").addEventListener("click", updateUI);
+weightInput.addEventListener("keydown", (event) => {
+    if (event.key !== "Enter")
+        return;
+    
+    updateUI();
+});
 barbellWeightDropdown.addEventListener("change", (event) => {
     updateBarbellWeight(parseFloat(event.target.value));
 });
-document.querySelectorAll(".plate input").forEach(input => {
+document.querySelectorAll(".plate-label input").forEach(input => {
 	input.addEventListener("change", (event) => {
 		updatePlateList(parseFloat(event.target.value), event.target.checked);
 	});

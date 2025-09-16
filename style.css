@@ -8,12 +8,14 @@
 body {
     margin: 0;
     padding: 0;
+
     display: flex;
     flex-direction: column;
     align-items: center;
     background: var(--bg);
     color: var(--text);
-    font-family: "Open Sans", sans-serif;
+
+    font-family: "JetBrains Mono", monospace;
     min-height: 100vh;
 }
 
@@ -112,7 +114,7 @@ input[type="text"], select {
 }
 .plate-text {
     margin-top: 6px;
-    font-size: 0.9rem;
+    font-size: 0.7rem;
     font-weight: bold;
     color: var(--text);
 }

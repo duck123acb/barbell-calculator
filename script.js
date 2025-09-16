@@ -4,6 +4,7 @@ let plates = [];
 let weightDisplay = document.querySelector("#weight-display");
 let weightInput = document.querySelector("#weight-input")
 let barbellWeightDropdown = document.querySelector("#barbell-weight");
+let barbellDisplay = document.querySelector("#barbell"); // need leftside/rightside
 
 class PlateStack {
     constructor(weight, number) {
@@ -62,8 +63,17 @@ function updateUI() {
     let result = calculateWeights(weight);
 
     if (result.plates) {
+        barbellDisplay.innerHTML = "";
+
         weightDisplay.textContent = weight + " lbs";
-        console.log(result.plates);
+
+        result.plates.forEach(plateStack => {
+            for (let i = 0; i < plateStack.number; i++) {
+                const plate = document.createElement("div");
+                plate.classList.add(`plate-${plateStack.weight}`);
+                barbellDisplay.appendChild(plate);
+            }
+        });
     }
     if (result.error)
         weightDisplay.textContent = result.error;

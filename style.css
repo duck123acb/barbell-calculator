@@ -54,6 +54,20 @@ h2 {
     background: #BCB8B1;
     margin: 20px auto;
     position: relative;
+
+    display: flex;
+    gap: 70%;
+    justify-content: center;
+    align-items: center;
+}
+
+.barbell-side {
+    display: flex;
+    align-items: center;
+    gap: .5px;
+}
+.barbell-side:nth-of-type(1) {
+    flex-direction: row-reverse;
 }
 
 input[type="text"], select {
@@ -150,4 +164,3 @@ input[type="text"], select {
     height: 20px;
     background: gray;
 }
-

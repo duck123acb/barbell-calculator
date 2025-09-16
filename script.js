@@ -5,6 +5,7 @@ let weightDisplay = document.querySelector("#weight-display");
 let weightInput = document.querySelector("#weight-input")
 let barbellWeightDropdown = document.querySelector("#barbell-weight");
 let barbellSides = document.querySelectorAll(".barbell-side");
+let barbellDisplay = document.querySelector("#barbell");
 
 class PlateStack {
     constructor(weight, number) {
@@ -55,7 +56,9 @@ function updatePlateList(plateWeight, isChecked) {
 
 function updateBarbellWeight(weight) {
     barbell = weight;
-    weightDisplay.textContent = barbell + " lbs";
+    let message = barbell + " lbs";
+    weightDisplay.textContent = message;
+    barbellDisplay.title = message;
 }
 
 function updateUI() {
@@ -72,6 +75,11 @@ function updateUI() {
                 for (let i = 0; i < plateStack.number; i++) {
                     const plate = document.createElement("div");
                     plate.classList.add("plate-shape", `plate-${plateStack.weight}`);
+                    
+                    plate.title = `${plateStack.weight} lbs`;
+                    if (plateStack.weight === 1) // removing the 's' from lbs if its only 1 lb
+                        plate.title = plate.title.slice(0, -1);
+
                     side.appendChild(plate);
                 }
             });

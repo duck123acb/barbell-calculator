@@ -93,7 +93,7 @@ input[type="text"], select {
 }
 .plate-shape {
     border-radius: 0.5rem;
-    opacity: 0.4;
+    opacity: 1;
     transition: all 200ms ease;
 }
 .plate-text {
@@ -102,50 +102,50 @@ input[type="text"], select {
     font-weight: bold;
     color: var(--text);
 }
-.plate-label input:checked + .plate-shape {
-    opacity: 1;
+.plate-label input:not(:checked) + .plate-shape {
+    opacity: 0.4;
 }
-.plate-label input[value="55"] + .plate-shape {
+.plate-55 {
     width: 45px;
     height: 90px;
     background: red;
 }
-.plate-label input[value="45"] + .plate-shape {
+.plate-45 {
     width: 40px;
     height: 90px;
     background: blue;
 }
-.plate-label input[value="35"] + .plate-shape {
+.plate-35 {
     width: 35px;
     height: 80px;
     background: yellow;
 }
-.plate-label input[value="25"] + .plate-shape {
+.plate-25 {
     width: 25px;
     height: 70px;
     background: green;
 }
-.plate-label input[value="10"] + .plate-shape {
+.plate-10 {
     width: 15px;
     height: 50px;
     background: grey;
 }
-.plate-label input[value="5"] + .plate-shape {
+.plate-5 {
     width: 10px;
     height: 45px;
     background: grey;
 }
-.plate-label input[value="2.5"] + .plate-shape {
+.plate-2\.5 {
     width: 8px;
     height: 30px;
     background: gray;
 }
-.plate-label input[value="1"] + .plate-shape {
+.plate-1 {
     width: 6px;
     height: 25px;
     background: gray;
 }
-.plate-label input[value="0.5"] + .plate-shape {
+.plate-0\.5 {
     width: 4px;
     height: 20px;
     background: gray;

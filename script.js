@@ -85,6 +85,10 @@ function updateUI() {
             });
         });
 
+        const stackSize = barbellSides[0].children.length; // will always have the same # of plates per side
+        let gapValue = 60 - stackSize * 4;
+        gapValue = Math.max(20, Math.min(60, gapValue));
+        barbellDisplay.style.gap = `${gapValue}%`;
     }
     if (result.error)
         weightDisplay.textContent = result.error;

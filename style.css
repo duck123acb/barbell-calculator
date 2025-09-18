@@ -58,7 +58,7 @@ h2 {
     position: relative;
 
     display: flex;
-    gap: 70%;
+    gap: 70%; /* set with javascript */
     justify-content: center;
     align-items: center;
 }
@@ -66,7 +66,7 @@ h2 {
 .barbell-side {
     display: flex;
     align-items: center;
-    gap: .5px;
+    gap: 1px;
 }
 .barbell-side:nth-of-type(1) {
     flex-direction: row-reverse;

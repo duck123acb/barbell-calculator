@@ -1,3 +1,7 @@
+const PLATE_GAP_MAX = 100;
+const PLATE_GAP_MIN = 20;
+const PLATE_GAP_DECAY_FACTOR = -0.2;
+
 let barbell;
 let plates = [];
 
@@ -86,8 +90,11 @@ function updateUI() {
         });
 
         const stackSize = barbellSides[0].children.length; // will always have the same # of plates per side
-        let gapValue = 60 - stackSize * 4;
-        gapValue = Math.max(20, Math.min(60, gapValue));
+        // let gapValue = 60 - stackSize * 4; // 60% - 4% per plate
+        // let gapValue = PLATE_GAP_MAX / (1 + stackSize * 0.3);
+        let gapValue = PLATE_GAP_MAX * Math.exp(PLATE_GAP_DECAY_FACTOR * stackSize); // exponential decay with stackSize
+        gapValue = Math.max(PLATE_GAP_MIN, Math.min(PLATE_GAP_MAX, gapValue)); // clamp value
+        console.log(gapValue)
         barbellDisplay.style.gap = `${gapValue}%`;
     }
     if (result.error)

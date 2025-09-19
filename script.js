@@ -20,7 +20,7 @@ const plateOptions = [
 ]
 
 let barbell;
-let plates = [];
+let useablePlates = [];
 let units = "lbs";
 
 const weightDisplay = document.querySelector("#weight-display");
@@ -47,6 +47,10 @@ function setUnits() {
         option.textContent = weight + " " + units;
     });
 
+    const selectedIndex = barbellWeightDropdown.selectedIndex;
+    const newBarbellWeight = barbellOptions[selectedIndex][units];
+    updateBarbellWeight(newBarbellWeight);
+
     // plates
     plateLabels.forEach((label, i) => {
         const weight = plateOptions[i][units];
@@ -67,7 +71,7 @@ function calculateWeights(weight) {
     let result = [];
     let perSide = remainingWeight / 2;
 
-    plates.forEach(plate => {
+    useablePlates.forEach(plate => {
         let count = Math.floor(perSide / plate);
         if (count <= 0) {
             return;
@@ -90,12 +94,12 @@ function calculateWeights(weight) {
 
 function updatePlateList(plateWeight, isChecked) {
 	if (isChecked) {
-		plates.push(plateWeight);
-		plates.sort((a, b) => b - a);
+		useablePlates.push(plateWeight);
+		useablePlates.sort((a, b) => b - a);
 		return;
 	}
 	
-	plates = plates.filter(p => p !== plateWeight);
+	useablePlates = useablePlates.filter(p => p !== plateWeight);
 }
 
 function updateBarbellWeight(weight) {
@@ -115,7 +119,7 @@ function updateUI() {
         barbellSides.forEach(side => {
             side.innerHTML = "";
 
-            result.plates.forEach(plateStack => { //FIXME: adds wrong plates
+            result.plates.forEach(plateStack => {
                 for (let i = 0; i < plateStack.number; i++) {
                     const plate = document.createElement("div");
                     plate.classList.add("plate-shape", `plate-${plateStack.weight}`);
@@ -143,6 +147,9 @@ function updateUI() {
 }
 
 kgToggle.addEventListener("click", () => {
+    weightInput.value = "";
+    updateUI();
+
     if (units === "lbs") {
         units = "kg";
         kgToggle.textContent = "Switch to lbs";
@@ -153,7 +160,10 @@ kgToggle.addEventListener("click", () => {
     }
 
     setUnits();
-    updateBarbellWeight(barbell);
+    plateLabels.forEach(plateLabel => { // might be hacky??
+        let input = plateLabel.querySelector("input");
+        updatePlateList(parseFloat(input.value), input.checked);
+    });
 });
 document.querySelector("#calculate-btn").addEventListener("click", updateUI);
 weightInput.addEventListener("keydown", (event) => {

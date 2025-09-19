@@ -40,15 +40,22 @@ class PlateStack {
 
 function setUnits() {
     // weight dropdown
-    let options = barbellWeightDropdown.children;
-    for (let i = 0; i < options.length; i++) {
+    barbellWeightDropdown.children.forEach((option, i) => {
         const weight = barbellOptions[i][units]; 
-        options[i].value = weight;
-        options[i].textContent = weight + " " + units;
-    }
+
+        option.value = weight;
+        option.textContent = weight + " " + units;
+    });
 
     // plates
-    // TODO: implement above for each child of the plateLabels
+    plateLabels.forEach(label => {
+        const weight = plateOptions[i][units];
+        const message = weight + " " + units
+
+        label.querySelector("input").value = weight;
+        label.querySelector(".plate-shape").title = message;
+        label.querySelector(".plate-text").textContent = message;
+    });
 }
 
 function calculateWeights(weight) {
@@ -158,7 +165,7 @@ barbellWeightDropdown.addEventListener("change", (event) => {
     updateBarbellWeight(parseFloat(event.target.value));
 });
 plateLabels.forEach(plateLabel => {
-    let input = plateLabel.querySelector("label"); //TODO: check if this works
+    let input = plateLabel.querySelector("input");
 	input.addEventListener("change", (event) => {
 		updatePlateList(parseFloat(event.target.value), event.target.checked);
 	});

@@ -55,7 +55,6 @@ function setUnits() {
     plateLabels.forEach((label, i) => {
         const weight = plateOptions[i][units];
         const message = weight + " " + units;
-	console.log(weight, message);
 
         label.querySelector("input").value = weight;
         label.querySelector(".plate-shape").title = message;
@@ -113,7 +112,6 @@ function updateBarbellWeight(weight) {
 function updateUI() {
     let weight = weightInput.value;
     let result = calculateWeights(weight);
-	console.log(weight, result);
     if (result.plates) {
         weightDisplay.textContent = weight  + " " + units;
         
@@ -184,7 +182,6 @@ barbellWeightDropdown.addEventListener("change", (event) => {
 plateLabels.forEach(plateLabel => {
     let input = plateLabel.querySelector("input");
 	input.addEventListener("change", (event) => {
-		console.log(event.target.value);
 		updatePlateList(parseFloat(event.target.value), event.target.checked);
 	});
 

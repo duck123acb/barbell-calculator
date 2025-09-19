@@ -40,7 +40,7 @@ class PlateStack {
 
 function setUnits() {
     // weight dropdown
-    barbellWeightDropdown.children.forEach((option, i) => {
+    Array.from(barbellWeightDropdown.children).forEach((option, i) => {
         const weight = barbellOptions[i][units]; 
 
         option.value = weight;
@@ -48,7 +48,7 @@ function setUnits() {
     });
 
     // plates
-    plateLabels.forEach(label => {
+    plateLabels.forEach((label, i) => {
         const weight = plateOptions[i][units];
         const message = weight + " " + units
 
@@ -115,7 +115,7 @@ function updateUI() {
         barbellSides.forEach(side => {
             side.innerHTML = "";
 
-            result.plates.forEach(plateStack => {
+            result.plates.forEach(plateStack => { //FIXME: adds wrong plates
                 for (let i = 0; i < plateStack.number; i++) {
                     const plate = document.createElement("div");
                     plate.classList.add("plate-shape", `plate-${plateStack.weight}`);
@@ -152,6 +152,7 @@ kgToggle.addEventListener("click", () => {
         kgToggle.textContent = "Switch to kg"
     }
 
+    setUnits();
     updateBarbellWeight(barbell);
 });
 document.querySelector("#calculate-btn").addEventListener("click", updateUI);

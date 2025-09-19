@@ -121,47 +121,56 @@ input[type="text"], select {
 .plate-label input:not(:checked) + .plate-shape {
     opacity: 0.4;
 }
-.plate-55 {
+.plate-55lbs,
+.plate-25kg {
     width: 45px;
     height: 90px;
     background: red;
 }
-.plate-45 {
+.plate-45lbs,
+.plate-20kg {
     width: 40px;
     height: 90px;
     background: blue;
 }
-.plate-35 {
+.plate-35lbs,
+.plate-15kg {
     width: 35px;
     height: 80px;
     background: yellow;
 }
-.plate-25 {
+.plate-25lbs,
+.plate-10kg {
     width: 25px;
     height: 70px;
     background: green;
 }
-.plate-10 {
+.plate-10lbs,
+.plate-5kg {
     width: 15px;
     height: 50px;
     background: grey;
 }
-.plate-5 {
+.plate-5lbs,
+.plate-2\.5kg {
     width: 10px;
     height: 45px;
     background: grey;
 }
-.plate-2\.5 {
+.plate-2\.5lbs,
+.plate-1\.25kg {
     width: 8px;
     height: 30px;
     background: gray;
 }
-.plate-1 {
+.plate-1lbs,
+.plate-0\.5kg {
     width: 6px;
     height: 25px;
     background: gray;
 }
-.plate-0\.5 {
+.plate-0\.5lbs,
+.plate-0\.25kg {
     width: 4px;
     height: 20px;
     background: gray;

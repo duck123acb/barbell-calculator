@@ -54,7 +54,8 @@ function setUnits() {
     // plates
     plateLabels.forEach((label, i) => {
         const weight = plateOptions[i][units];
-        const message = weight + " " + units
+        const message = weight + " " + units;
+	console.log(weight, message);
 
         label.querySelector("input").value = weight;
         label.querySelector(".plate-shape").title = message;
@@ -122,8 +123,8 @@ function updateUI() {
             result.plates.forEach(plateStack => {
                 for (let i = 0; i < plateStack.number; i++) {
                     const plate = document.createElement("div");
-                    plate.classList.add("plate-shape", `plate-${plateStack.weight}`);
-                    
+                    plate.classList.add("plate-shape", `plate-${plateStack.weight}${units}`);
+
                     plate.title = plateStack.weight + " " + units;
                     if (plateStack.weight === 1 && units === "lbs") // removing the 's' from lbs if its only 1 lb
                         plate.title = plate.title.slice(0, -1);
@@ -145,7 +146,7 @@ function updateUI() {
     if (result.error) {
         weightDisplay.textContent = result.error;
 	barbellSides.forEach(side => {
-	    side.innerHTML = "";
+	   side.innerHTML = "";
 	});
     }
 }
@@ -164,6 +165,7 @@ kgToggle.addEventListener("click", () => {
     }
 
     setUnits();
+    useablePlates = [];
     plateLabels.forEach(plateLabel => { // might be hacky??
         let input = plateLabel.querySelector("input");
         updatePlateList(parseFloat(input.value), input.checked);
@@ -182,6 +184,7 @@ barbellWeightDropdown.addEventListener("change", (event) => {
 plateLabels.forEach(plateLabel => {
     let input = plateLabel.querySelector("input");
 	input.addEventListener("change", (event) => {
+		console.log(event.target.value);
 		updatePlateList(parseFloat(event.target.value), event.target.checked);
 	});
 

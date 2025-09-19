@@ -112,7 +112,7 @@ function updateBarbellWeight(weight) {
 function updateUI() {
     let weight = weightInput.value;
     let result = calculateWeights(weight);
-
+	console.log(weight, result);
     if (result.plates) {
         weightDisplay.textContent = weight  + " " + units;
         
@@ -142,8 +142,12 @@ function updateUI() {
         gapValue = Math.max(PLATE_GAP_MIN, Math.min(PLATE_GAP_MAX, gapValue)); // clamp value
         barbellDisplay.style.gap = `${gapValue}%`;
     }
-    if (result.error)
+    if (result.error) {
         weightDisplay.textContent = result.error;
+	barbellSides.forEach(side => {
+	    side.innerHTML = "";
+	});
+    }
 }
 
 kgToggle.addEventListener("click", () => {

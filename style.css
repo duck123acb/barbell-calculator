@@ -20,26 +20,6 @@ main {
     color: var(--text);
 }
 
-header, footer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-        
-    color: white;
-    background-color: var(--text);
-    margin: 0;
-    width: 100%;
-    height: 75px;
-
-    font-size: 1.5rem;
-}
-a {
-    color: var(--link);
-}
-a:visited {
-    color: var(--link-visited);
-}
-
 h1 {
     font-size: 2.5rem;
     margin: 20px 0;
